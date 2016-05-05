@@ -1,0 +1,7 @@
+---
+yp_nisdomain: ''
+yp_nisserver: []
+yp_domain_broadcast: false
+yp_domain_slp: false
+yp_server: ''
+yp_broadcast: false

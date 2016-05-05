@@ -1,0 +1,37 @@
+# /etc/yp.conf - ypbind configuration file
+# Valid entries are
+#
+# domain NISDOMAIN server HOSTNAME
+#	Use server HOSTNAME for the domain NISDOMAIN.
+{% if yp_nisdomain and yp_nisserver %}
+{% for i in yp_nisserver %}
+domain {{ yp_nisdomain }} server {{ i }}
+{% endfor %}
+{% endif %}
+#
+# domain NISDOMAIN broadcast
+#	Use  broadcast  on  the local net for domain NISDOMAIN
+{% if yp_domain_broadcast and yp_nisdomain %}
+domain {{ yp_nisdomain }} broadcast
+{% endif %}
+#
+# domain NISDOMAIN slp
+#	Query local SLP server for ypserver supporting NISDOMAIN
+{% if yp_domain_slp and yp_nisdomain %}
+domain {{ yp_nisdomain }} slp
+{% endif %}
+#
+# ypserver HOSTNAME
+#	Use server HOSTNAME for the  local  domain.  The
+#	IP-address of server must be listed in /etc/hosts.
+{% if yp_server %}
+ypserver {{ yp_server }}
+{% endif %}
+#
+# broadcast
+#	If no server for the default domain is specified or
+#	none of them is rechable, try a broadcast call to
+#	find a server.
+{% if yp_broadcast %}
+broadcast
+{% endif %}
