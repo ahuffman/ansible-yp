@@ -1,4 +1,4 @@
-yp
+ahuffman.yp
 =========
 
 An Ansible role to configure yp.conf and ypbind NIS service.
@@ -61,9 +61,9 @@ Example Playbook
 License
 -------
 
-MIT
+[MIT](LICENSE)
 
 Author Information
 ------------------
 
-Andrew J. Huffman
+[Andrew J. Huffman](https://github.com/ahuffman)
