@@ -1,9 +1,13 @@
 ---
 #Install ypbind
-- name: Ensure {{ ypbindpkg }} is installed
-  yum: name='{{ ypbindpkg }}' state=latest
+- name: Ensure {{ ypbind_pkg }} is installed
+  yum: 
+    name: '{{ ypbind_pkg }}'
+    state: 'latest'
 
 #Configure yp.conf
 - name: Configure yp.conf
-  template: src=yp.conf.j2 dest=/etc/yp.conf
+  template: 
+    src: 'yp.conf.j2' 
+    dest: '{{ yp_conf_path }}'
   notify: Restart {{ ypbindsvc }}
