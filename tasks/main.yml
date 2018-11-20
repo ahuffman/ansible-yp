@@ -1,8 +1,8 @@
 ---
 #Install ypbind
-- name: Ensure {{ ypbind_pkg }} is installed
+- name: Ensure {{ ypbindpkg }} is installed
   yum: 
-    name: '{{ ypbind_pkg }}'
+    name: '{{ ypbindpkg }}'
     state: 'latest'
 
 #Configure yp.conf
