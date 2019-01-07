@@ -1,13 +1,21 @@
 ---
 #Install ypbind
-- name: Ensure {{ ypbind_pkg }} is installed
-  yum: 
-    name: '{{ ypbind_pkg }}'
-    state: 'latest'
+- name: "Ensure {{ yp_bind_pkg }} is installed"
+  package:
+    name: "{{ yp_bind_pkg }}"
+    state: "present"
+  retries: "3"
+  register: "yp_installed"
+  until: "yp_installed is succeeded"
+  become: True
 
 #Configure yp.conf
-- name: Configure yp.conf
-  template: 
-    src: 'yp.conf.j2' 
-    dest: '{{ yp_conf_path }}'
-  notify: Restart {{ ypbindsvc }}
+- name: "Configure yp.conf"
+  template:
+    src: "yp.conf.j2"
+    dest: "{{ yp_conf_path }}"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify: "Restart {{ yp_bind_svc }}"
+  become: True

@@ -1,7 +1,7 @@
 ---
 #Restart and enable ypbind service
-- name: Restart {{ ypbindsvc }}
-  service: 
-    name: '{{ ypbindsvc }}' 
-    enabled: 'yes'
-    state: 'restarted'
+- name: "Restart {{ yp_bind_svc }}"
+  service:
+    name: "{{ yp_bind_svc }}"
+    enabled: True
+    state: "restarted"

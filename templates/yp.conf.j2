@@ -1,10 +1,10 @@
-#{{ ansible_managed }}
+# {{ ansible_managed }}
 # /etc/yp.conf - ypbind configuration file
 # Valid entries are
 #
 # domain NISDOMAIN server HOSTNAME
 #	Use server HOSTNAME for the domain NISDOMAIN.
-{% if yp_nisdomain and yp_nisserver %}
+{% if yp_nisdomain and yp_nisserver | length > 0 %}
 {% for i in yp_nisserver %}
 domain {{ yp_nisdomain }} server {{ i }}
 {% endfor %}
