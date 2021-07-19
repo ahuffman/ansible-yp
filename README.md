@@ -1,3 +1,5 @@
+ ![Ansible Role](https://img.shields.io/ansible/role/d/9539)
+ 
  # ahuffman.yp
 
 An Ansible role to configure yp.conf and ypbind NIS service.
